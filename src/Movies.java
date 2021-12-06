@@ -16,11 +16,10 @@ public class Movies {
 
 		int releaseYearLength = releaseYear.length;
 		int i;
-		int elapsedTime = releaseYear[releaseYearLength - 1] - releaseYear[0];
-		int approxYrsForMovieRelease = elapsedTime / releaseYearLength;
+		
 
 		System.out.println("Menu\n"
-				+ "1. Fine Elapsed Years\n"
+				+ "1. Find Elapsed Years\n"
 				+ "2.Approx years for Movie release\n"
 				+ "3.Enter Movie No to find movie name\n"
 				+ "4.Find 1st or last movie\n"
@@ -29,6 +28,8 @@ public class Movies {
 				+ "7.Create your movie Database\n"
 				+ "Enter the option\n");
 		int option = input.nextInt();
+		int elapsedTime = releaseYear[releaseYearLength - 1] - releaseYear[0];
+		
 		switch (option) {
 
 		case 1:
@@ -38,20 +39,22 @@ public class Movies {
 
 		case 2:
 
-			//System.out.println("Approximate Years for a Movie Release: " + approxYrsForMovieRelease);
-			int arrayLength1 = movieName.length;
-	        
-	        double apporoxyears = (double)elapsedTime / (double)arrayLength1;
-	        double month = ((apporoxyears)-1)*12;	
-	        System.out.println("no of years :"+ Math.floor(apporoxyears) + " and months : " + month);
+			int movieLength = movieName.length;
+	      
+	        double apporoxyears = (double)elapsedTime / (double)movieLength;
+	        int noOfYears = (int) Math.floor(apporoxyears);
+	        int month = (int)((apporoxyears-noOfYears)*12);	
+	        System.out.println("Approximate Years for a Movie Release :"+ noOfYears + " year(s) and " + month +" months");
 			break;
 
 		case 3:
 			System.out.println("Enter the movie no. from 1 to 8 to find its name:");
 			int arrayIndex = input.nextInt();
+			
 			if ((arrayIndex <= 8) && (arrayIndex > 0)) {
 				System.out.println("The movie name is:" + movieName[arrayIndex - 1]);
-			} else
+			} 
+			else
 				System.out.println("inpt is InValid number ");
 			break;
 			
@@ -59,11 +62,16 @@ public class Movies {
 			System.out.println("Enter the no. to find the first or last movie:");
 			arrayIndex = input.nextInt();
 			System.out.println("The movie name is :" +movieName[arrayIndex-1]);
+			
 			if (arrayIndex == 1) {
 				System.out.println("First Movie:" + movieName[arrayIndex - 1]);
-			} else if (arrayIndex == 8) {
+			} 
+			
+			else if (arrayIndex == 8) {
 				System.out.println("Last Movie:" + movieName[arrayIndex - 1]);
-			} else {
+			} 
+			
+			else {
 				System.out.println("Not first or last movie");
 			}
 			break;
@@ -116,12 +124,11 @@ public class Movies {
 		
 		
 			for (String a : userMovieName) {
-				//System.out.println("Index value ::"+(a-1)+" value ::"+a);
+		
 				System.out.println(a);
 			}
 			
-		   //Arrays.stream(userMovieName).forEach(s -> System.out.println(s));
-
+		  
 			input.close();
 			break;
 		}
