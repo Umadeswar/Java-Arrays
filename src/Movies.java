@@ -38,7 +38,12 @@ public class Movies {
 
 		case 2:
 
-			System.out.println("Approximate Years for a Movie Release: " + approxYrsForMovieRelease);
+			//System.out.println("Approximate Years for a Movie Release: " + approxYrsForMovieRelease);
+			int arrayLength1 = movieName.length;
+	        
+	        double apporoxyears = (double)elapsedTime / (double)arrayLength1;
+	        double month = ((apporoxyears)-1)*12;	
+	        System.out.println("no of years :"+ Math.floor(apporoxyears) + " and months : " + month);
 			break;
 
 		case 3:
@@ -53,6 +58,7 @@ public class Movies {
 		case 4:
 			System.out.println("Enter the no. to find the first or last movie:");
 			arrayIndex = input.nextInt();
+			System.out.println("The movie name is :" +movieName[arrayIndex-1]);
 			if (arrayIndex == 1) {
 				System.out.println("First Movie:" + movieName[arrayIndex - 1]);
 			} else if (arrayIndex == 8) {
